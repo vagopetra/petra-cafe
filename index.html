@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Petra's Café</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f0e6;
+        }
+
+        header {
+            background-color: #6b4f4f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #8b6f6f;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .products {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #6b4f4f;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #6b4f4f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #cart {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Petra's Café</h1>
+    <p>Handmade mugs & unique coffee experiences</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#cart">Cart</a>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        I started Petra's Café because coffee has always been a huge part of my life.
+        I truly love the smell, the taste, and the feeling it gives every morning.
+    </p>
+    <p>
+        My goal is to create a cozy place where people can enjoy unique coffee blends
+        and handmade mugs that make every cup special.
+    </p>
+</section>
+
+<section id="products">
+    <h2>Our Products</h2>
+    <div class="products">
+        
+        <div class="product">
+            <h3>Handmade Mug</h3>
+            <p>Price: $10</p>
+            <button onclick="addToCart('Handmade Mug', 10)">Add to cart</button>
+        </div>
+
+        <div class="product">
+            <h3>Special Coffee Blend</h3>
+            <p>Price: $8</p>
+            <button onclick="addToCart('Special Coffee', 8)">Add to cart</button>
+        </div>
+
+        <div class="product">
+            <h3>Premium Coffee</h3>
+            <p>Price: $12</p>
+            <button onclick="addToCart('Premium Coffee', 12)">Add to cart</button>
+        </div>
+
+    </div>
+</section>
+
+<section id="cart">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p><strong>Total: $<span id="total">0</span></strong></p>
+</section>
+
+<footer>
+    <p>© 2026 Petra's Café</p>
+</footer>
+
+<script>
+    let total = 0;
+
+    function addToCart(product, price) {
+        const cartItems = document.getElementById("cart-items");
+
+        const li = document.createElement("li");
+        li.textContent = product + " - $" + price;
+        cartItems.appendChild(li);
+
+        total += price;
+        document.getElementById("total").textContent = total;
+    }
+</script>
+
+</body>
+</html>
